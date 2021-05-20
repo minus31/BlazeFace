@@ -19,7 +19,7 @@ def singleBlazeBlock(x, filters=24, kernel_size=5, strides=1, padding='same'):
         padding=padding,
         use_bias=False)(x)
 
-    x_1 = tf.layers.BatchNormalization()(x_0)
+    x_1 = tf.keras.layers.BatchNormalization()(x_0)
 
     # Residual connection
 
@@ -52,7 +52,7 @@ def doubleBlazeBlock(x, filters_1=24, filters_2=96,
         padding=padding,
         use_bias=False)(x)
 
-    x_1 = tf.layers.BatchNormalization()(x_0)
+    x_1 = tf.keras.layers.BatchNormalization()(x_0)
 
     x_2 = tf.keras.layers.Activation("relu")(x_1)
 
@@ -64,7 +64,7 @@ def doubleBlazeBlock(x, filters_1=24, filters_2=96,
         padding=padding,
         use_bias=False)(x_2)
 
-    x_4 = tf.layers.BatchNormalization()(x_3)
+    x_4 = tf.keras.layers.BatchNormalization()(x_3)
 
     # Residual connection
 

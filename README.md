@@ -1,6 +1,6 @@
 # BlazeFace : Sub-millisecond Neural Face Detection on Mobile GPUs
 
-> *논문 링크 : https://arxiv.org/pdf/1907.05047v2.pdf*
+> * Paper : https://arxiv.org/pdf/1907.05047v2.pdf*
 
 이 논문에서는 모바일 GPU를 사용하는 서비스, 추론 환경에서 가볍고 좋은 성능을 내는 작동하는 얼굴 검출 프레임워크, **"BlazeFace"** 를 제안했습니다. 
 

@@ -15,7 +15,7 @@ class BlazeFace():
     
     def __init__(self, config):
         
-        self.input_shape = (config.input_shape, config.input_shape)
+        self.input_shape = config.input_shape
         self.feature_extractor = network(self.input_shape)
         
         self.n_boxes = [2, 6] # 2 for 16x16, 6 for 8x8
@@ -76,7 +76,7 @@ class BlazeFace():
         output_combined = tf.keras.layers.Concatenate(axis=-1)([conf_of_bb, loc_of_bb])
         
         # Detectors model 
-        return tf.keras.models.Model(model.input, [conf_of_bb, output_combined])
+        return tf.keras.models.Model(model.input, output_combined)
     
 
     def train(self):
@@ -128,7 +128,7 @@ if __name__ == "__main__":
     args = argparse.ArgumentParser()
 
     # hyperparameters
-    args.add_argument('--input_shape', type=int, default=128)
+    args.add_argument('--input_shape', type=int, default=[128, 128, 3])
     args.add_argument('--batch_size', type=int, default=128)
     args.add_argument('--nb_epoch', type=int, default=1000)
     args.add_argument('--numdata', type=int, default=2625)
@@ -143,5 +143,3 @@ if __name__ == "__main__":
 
     if config.train:
         blazeface.train()
-
-
